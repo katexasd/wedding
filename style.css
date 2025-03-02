@@ -1,0 +1,100 @@
+/* Убираем отступы у body */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    overflow: auto; /* Разрешаем скроллинг */
+}
+
+/* Контейнер для всего */
+.container {
+    position: relative;
+    width: 100%;
+    height: auto; /* Делаем высоту гибкой */
+}
+
+/* Фоновое изображение (адаптивное) */
+.background-image {
+    width: 100%;
+    height: auto; /* Высота теперь не фиксированная */
+    display: block;
+}
+
+/* Контейнер с текстом */
+.text-overlay {
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    z-index: 2; /* Поднимаем текст выше */
+}
+
+/* Градиент (он ниже текста) */
+.gradient-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(0deg, #FFF9F2, transparent 50%, #262626);
+    z-index: 1; /* Градиент ниже текста */
+}
+
+/* Контейнер с именами */
+.name-container {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    position: relative;
+    z-index: 2;
+}
+
+/* Имена (адаптивные) */
+.name {
+    font-family: 'Cormorant', serif;
+    font-weight: 400;
+    font-size: 3vw; /* Размер зависит от ширины экрана */
+    color: #FFFFFF;
+    line-height: 1.2;
+}
+
+/* Символ "&" */
+.ampersand {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 12vw; /* Размер адаптивный */
+    color: rgba(255, 255, 255, 0.35);
+    position: absolute;
+    left: -3vw; /* Смещение влево, адаптивное */
+    bottom: 0;
+    transform: translateY(20%);
+    z-index: 1;
+}
+
+/* 🔹 АДАПТАЦИЯ ДЛЯ ТЕЛЕФОНОВ 🔹 */
+@media (max-width: 768px) {
+    .name {
+        font-size: 24px; /* Фиксированный размер */
+    }
+
+    .ampersand {
+        font-size: 96px;
+        left: -25px; /* Подправляем смещение */
+    }
+}
+
+/* 🔹 Компьютеры (от 1024px) 🔹 */
+@media (min-width: 1024px) {
+    .name {
+        font-size: 48px; /* Увеличили на 50% */
+    }
+
+    .ampersand {
+        font-size: 192px; /* Увеличили "&" на 50% */
+        left: -70px; /* Подстроили смещение */
+    }
+}
