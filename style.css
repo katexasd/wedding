@@ -25,15 +25,16 @@ body, html {
 /* Контейнер с текстом */
 .text-overlay {
     position: absolute;
-    top: 30px;
-    left: 50%;
-    transform: translateX(-50%);
+    top: 30px; /* Отступ сверху */
+    left: 50%; /* Центрируем по горизонтали */
+    transform: translate(-50%, 0); /* Смещаем, чтобы центр был точным */
     display: flex;
-    align-items: flex-start;
-    justify-content: center;
     flex-direction: column;
-    z-index: 2; /* Поднимаем текст выше */
+    align-items: center; /* Выравниваем весь текст по центру */
+    text-align: center;
+    z-index: 2;
 }
+
 
 /* Градиент (он ниже текста) */
 .gradient-overlay {
@@ -45,19 +46,17 @@ body, html {
 }
 
 /* Контейнер с именами */
+/* Контейнер с именами */
 .name-container {
     display: flex;
     flex-direction: column;
-    text-align: left;
     position: relative;
-    z-index: 2;
 }
 
-/* Имена (адаптивные) */
+/* Имена */
 .name {
     font-family: 'Cormorant', serif;
     font-weight: 400;
-    font-size: 3vw; /* Размер зависит от ширины экрана */
     color: #FFFFFF;
     line-height: 1.2;
 }
@@ -66,24 +65,21 @@ body, html {
 .ampersand {
     font-family: 'Inter', sans-serif;
     font-weight: 600;
-    font-size: 12vw; /* Размер адаптивный */
     color: rgba(255, 255, 255, 0.35);
     position: absolute;
-    left: -3vw; /* Смещение влево, адаптивное */
     bottom: 0;
     transform: translateY(20%);
     z-index: 1;
 }
 
-/* 🔹 АДАПТАЦИЯ ДЛЯ ТЕЛЕФОНОВ 🔹 */
+/* 🔹 Мобильная версия (до 768px) 🔹 */
 @media (max-width: 768px) {
     .name {
-        font-size: 24px; /* Фиксированный размер */
+        font-size: 24px;
     }
-
     .ampersand {
         font-size: 96px;
-        left: -25px; /* Подправляем смещение */
+        left: -25px;
     }
 }
 
