@@ -94,3 +94,48 @@ body, html {
         left: -70px; /* Подстроили смещение */
     }
 }
+
+/* === Блок приглашения === */
+.invitation {
+    background-color: #FFF9F2; /* Цвет фона */
+    padding: 60px 20px; /* Внутренние отступы */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 50vh;
+}
+
+/* Заголовок "Дорогие гости!" */
+.invitation-title {
+    font-family: 'Cormorant', serif;
+    font-weight: 200; /* Light */
+    font-size: 32px;
+    color: #3A4D40;
+    margin-bottom: 20px; /* Отступ вниз */
+}
+
+/* Основной текст приглашения */
+.invitation-text {
+    font-family: 'Cormorant', serif;
+    font-weight: 500; /* Bold */
+    font-size: 15px;
+    color: #3A4D40;
+    max-width: 80%; /* Чтобы текст не растягивался слишком широко */
+    line-height: 1.5;
+}
+
+/* 🔹 Десктопная версия (более 1024px) 🔹 */
+@media (min-width: 1024px) {
+    .invitation {
+        padding: 100px 40px;
+    }
+    .invitation-title {
+        font-size: 48px;
+    }
+    .invitation-text {
+        font-size: 18px;
+        max-width: 60%;
+    }
+}
