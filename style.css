@@ -4,7 +4,7 @@ body, html {
     padding: 0;
     width: 100%;
     height: 100%;
-    background-color: #000;
+    background-color: #FFF9F2;
     overflow: auto; /* Разрешаем скроллинг */
 }
 
@@ -45,7 +45,6 @@ body, html {
     z-index: 1; /* Градиент ниже текста */
 }
 
-/* Контейнер с именами */
 /* Контейнер с именами */
 .name-container {
     display: flex;
@@ -166,7 +165,7 @@ body, html {
     font-weight: 500; /* Bold */
     font-size: 15px;
     color: #FFF9F2;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 /* Таблица календаря */
@@ -217,5 +216,70 @@ body, html {
     .highlight {
         width: 32px;
         height: 32px;
+    }
+}
+
+/* === Блок "Место проведения" === */
+.venue {
+    background-color: #FFF9F2;
+    padding: 60px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Заголовок "Место проведения" */
+.venue-title {
+    font-family: 'Cormorant', serif;
+    font-weight: 200; /* Light */
+    font-size: 32px; /* Размер для мобильных */
+    color: #3A4D40;
+    margin-bottom: 30px;
+}
+
+/* Текст с адресом */
+.venue-text {
+    font-family: 'Cormorant', serif;
+    font-weight: 500; /* Bold */
+    font-size: 15px; /* Размер для мобильных */
+    color: #3A4D40;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+/* Контейнер для изображения */
+.venue-image-container {
+    position: relative;
+    width: 100%;
+    height: auto; /* 50% от высоты экрана */
+}
+
+/* Адаптивное изображение */
+.venue-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Градиент поверх картинки */
+.venue-image-container .gradient-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(0deg, #FFF9F2, transparent 50%, #FFF9F2);
+    z-index: 1; /* Градиент ниже текста */
+}
+
+/* 🔹 Десктопная версия (более 1024px) 🔹 */
+@media (min-width: 1024px) {
+    .name {
+        font-size: 48px; /* Увеличили на 50% */
+    }
+
+    .ampersand {
+        font-size: 192px; /* Увеличили "&" на 50% */
+        left: -70px; /* Подстроили смещение */
     }
 }
