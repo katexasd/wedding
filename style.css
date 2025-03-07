@@ -139,3 +139,83 @@ body, html {
         max-width: 60%;
     }
 }
+
+/* === Блок даты свадьбы === */
+.wedding-date {
+    background-color: #3A4D40; /* Темный фон */
+    padding: 60px 20px; /* Отступы */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Заголовок "Дата бракосочетания" */
+.wedding-date-title {
+    font-family: 'Cormorant', serif;
+    font-weight: 200; /* Light */
+    font-size: 32px;
+    color: #FFF9F2;
+    margin-bottom: 20px;
+}
+
+/* Подзаголовок "июнь | 2025" */
+.wedding-date-subtitle {
+    font-family: 'Cormorant', serif;
+    font-weight: 500; /* Bold */
+    font-size: 15px;
+    color: #FFF9F2;
+    margin-bottom: 20px;
+}
+
+/* Таблица календаря */
+.calendar {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300; /* Light */
+    font-size: 11px;
+    color: #FFF9F2;
+    border-collapse: collapse; /* Убираем границы между ячейками */
+}
+
+/* Стиль для всех ячеек */
+.calendar td {
+    width: 30px; /* Ширина ячейки */
+    height: 30px; /* Высота ячейки */
+    text-align: center;
+    vertical-align: middle;
+}
+
+/* Обводка круга для числа 13 */
+.highlight {
+    display: inline-block;
+    width: 24px; /* Размер круга */
+    height: 24px;
+    line-height: 24px; /* Выравниваем число по центру */
+    border: 1px dashed #FFF9F2; /* Пунктирная граница */
+    border-radius: 50%; /* Делаем круг */
+    text-align: center;
+    font-size: 11px;
+}
+
+/* 🔹 Десктопная версия (более 1024px) 🔹 */
+@media (min-width: 1024px) {
+    .date-title {
+        font-size: 48px; /* Увеличиваем заголовок */
+    }
+
+    .date-subtitle {
+        font-size: 18px; /* Увеличиваем подзаголовок */
+    }
+
+    .calendar span {
+        font-size: 14px; /* Увеличиваем цифры */
+        width: 32px; /* Делаем их больше */
+        height: 32px;
+    }
+
+    .highlight {
+        width: 32px;
+        height: 32px;
+    }
+}
