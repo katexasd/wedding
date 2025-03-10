@@ -392,7 +392,7 @@ body, html {
     border: 1px solid #3A4D40;
     background-color: transparent;
     padding: 10px;
-    width: 160%; /* Увеличил ширину в 2 раза */
+    width: 100%; /* Увеличил ширину в 2 раза */
     max-width: 600px; /* Ограничение на больших экранах */
     text-align: left;
     outline: none;
@@ -466,7 +466,7 @@ body, html {
     font-size: 15px;
     color: #FFF9F2;
     padding: 10px;
-    width: 170%; /* Делаем длину как у input */
+    width: 110%; /* Делаем длину как у input */
     max-width: 600px;
     border: none;
     cursor: pointer;
@@ -480,10 +480,10 @@ body, html {
 /* Заголовок "Мы ждем Вас!" */
 .rsvp-waiting {
     font-family: 'Cormorant', serif;
-    font-weight: 200; /* Light */
+    font-weight: 100; /* Light */
     font-size: 32px;
     color: #3A4D40;
-    margin-top: 50px;
-    margin-bottom: 90px;
+    margin-top: 70px;
+    margin-bottom: 50px;
 }
 
