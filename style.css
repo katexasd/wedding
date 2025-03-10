@@ -352,7 +352,7 @@ body, html {
     }
 }
 
-/* === Блок "Вы придете?" === */
+/* === Блок "Вы придете?" === ====================================================================================*/
 .rsvp {
     background-color: #FFF9F2;
     padding: 60px 20px;
@@ -381,6 +381,7 @@ body, html {
     max-width: 80%;
     line-height: 1.5;
     margin-bottom: 30px;
+    margin-left: 30px;
 }
 
 /* Поле для ввода */
@@ -392,11 +393,12 @@ body, html {
     border: 1px solid #3A4D40;
     background-color: transparent;
     padding: 10px;
-    width: 100%; /* Увеличил ширину в 2 раза */
+    width: 100%;
     max-width: 600px; /* Ограничение на больших экранах */
     text-align: left;
     outline: none;
     margin-bottom: 10px;
+    margin-left: 30px;
 }
 
 /* Делаем текст непрозрачным при вводе */
@@ -417,6 +419,7 @@ body, html {
     align-items: flex-start;
     margin-top: 10px;
     gap: 10px;
+    margin-left: 30px;
 }
 
 /* Стили для каждого варианта */
@@ -471,6 +474,7 @@ body, html {
     border: none;
     cursor: pointer;
     transition: 0.3s;
+    margin-left: 30px; 
 }
 
 .rsvp-button:hover {
