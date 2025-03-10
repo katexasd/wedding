@@ -351,3 +351,139 @@ body, html {
         font-size: 18px;
     }
 }
+
+/* === Блок "Вы придете?" === */
+.rsvp {
+    background-color: #FFF9F2;
+    padding: 60px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Заголовок "Вы придете?" */
+.rsvp-title {
+    font-family: 'Cormorant', serif;
+    font-weight: 200; /* Light */
+    font-size: 32px;
+    color: #3A4D40;
+    margin-bottom: 15px;
+}
+
+/* Описание */
+.rsvp-text {
+    font-family: 'Cormorant', serif;
+    font-weight: 500; /* Bold */
+    font-size: 15px;
+    color: #3A4D40;
+    max-width: 80%;
+    line-height: 1.5;
+    margin-bottom: 30px;
+}
+
+/* Поле для ввода */
+.rsvp-input {
+    font-family: 'Cormorant', serif;
+    font-weight: 400; /* SemiBold */
+    font-size: 15px;
+    color: rgba(58, 77, 64, 0.75); /* Прозрачность 75% */
+    border: 1px solid #3A4D40;
+    background-color: transparent;
+    padding: 10px;
+    width: 160%; /* Увеличил ширину в 2 раза */
+    max-width: 600px; /* Ограничение на больших экранах */
+    text-align: left;
+    outline: none;
+    margin-bottom: 10px;
+}
+
+/* Делаем текст непрозрачным при вводе */
+.rsvp-input:focus,
+.rsvp-input:not(:placeholder-shown) {
+    color: #3A4D40; /* Полностью непрозрачный */
+}
+
+/* Убираем плейсхолдер при вводе */
+.rsvp-input::placeholder {
+    color: rgba(58, 77, 64, 0.75);
+}
+
+/* Радиокнопки */
+.rsvp-options {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 10px;
+    gap: 10px;
+}
+
+/* Стили для каждого варианта */
+.rsvp-option {
+    display: flex;
+    align-items: center;
+    font-family: 'Cormorant', serif;
+    font-weight: 500; /* Bold */
+    font-size: 15px;
+    color: #3A4D40;
+    cursor: pointer;
+}
+
+/* Прячем стандартные radio-кнопки */
+.rsvp-option input {
+    display: none;
+}
+
+/* Кастомный radio-стиль (теперь квадратный) */
+.rsvp-radio {
+    width: 18px;
+    height: 18px;
+    border: 1px solid #3A4D40;
+    border-radius: 0;  /* Убираем скругление, делаем квадрат */
+    display: inline-block;
+    margin-right: 8px;
+    position: relative;
+}
+
+/* Когда radio выбрано, внутри появляется квадратная отметка */
+.rsvp-option input:checked + .rsvp-radio::after {
+    content: "✔";
+    font-size: 16px;
+    color: #3A4D40;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Кнопка "Отправить" */
+.rsvp-button {
+    margin-top: 20px;
+    background-color: #3A4D40;
+    font-family: 'Cormorant', serif;
+    font-weight: 400; /* SemiBold */
+    font-size: 15px;
+    color: #FFF9F2;
+    padding: 10px;
+    width: 170%; /* Делаем длину как у input */
+    max-width: 600px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.rsvp-button:hover {
+    background-color: #2b3d30;
+}
+
+/* Заголовок "Мы ждем Вас!" */
+.rsvp-waiting {
+    font-family: 'Cormorant', serif;
+    font-weight: 200; /* Light */
+    font-size: 32px;
+    color: #3A4D40;
+    margin-top: 50px;
+    margin-bottom: 90px;
+}
+
