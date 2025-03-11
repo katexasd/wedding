@@ -2,9 +2,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const form = document.querySelector(".rsvp-form");
     const nameInput = document.querySelector(".rsvp-input");
     const radioButtons = document.querySelectorAll("input[name='attendance']");
-    const submitButton = document.querySelector(".rsvp-button");
+    const radioContainer = document.querySelector(".rsvp-radio-group"); // Блок с радио-кнопками
 
-    // Функция для отображения ошибки
+    // Функция отображения ошибки
     function showError(input, message) {
         let error = input.nextElementSibling;
         if (!error || !error.classList.contains("error-message")) {
@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
         input.classList.add("error");
     }
 
-    // Функция для очистки ошибки
+    // Функция очистки ошибки
     function clearError(input) {
         let error = input.nextElementSibling;
         if (error && error.classList.contains("error-message")) {
@@ -44,31 +44,45 @@ document.addEventListener("DOMContentLoaded", function () {
     // Проверка выбора радио-кнопки
     function validateRadio() {
         const isChecked = [...radioButtons].some(radio => radio.checked);
+        let error = radioContainer.querySelector(".error-message");
+
         if (!isChecked) {
-            showError(radioButtons[0].parentNode, "Выберите один из вариантов");
+            if (!error) {
+                error = document.createElement("div");
+                error.classList.add("error-message");
+                error.textContent = "Выберите один из вариантов";
+                radioContainer.appendChild(error);
+            }
             return false;
         } else {
-            clearError(radioButtons[0].parentNode);
+            if (error) error.remove();
             return true;
         }
     }
 
-    // Функция отправки данных в Google Sheets
-    function sendDataToGoogleSheets() {
-        const nameValue = nameInput.value.trim();
-        const attendanceValue = [...radioButtons].find(radio => radio.checked).value;
+    // Обработчик отправки формы
+    form.addEventListener("submit", function (event) {
+        event.preventDefault(); // Останавливаем стандартную отправку формы
 
-        const data = {
-            name: nameValue,
-            attendance: attendanceValue
-        };
+        const isNameValid = validateName();
+        const isRadioValid = validateRadio();
+
+        if (isNameValid && isRadioValid) {
+            const name = nameInput.value.trim();
+            const attendance = [...radioButtons].find(radio => radio.checked).value;
+
+            sendDataToGoogleSheets(name, attendance);
+        }
+    });
+
+    // Функция отправки данных в Google Sheets
+    function sendDataToGoogleSheets(name, attendance) {
+        const data = { name, attendance };
 
         fetch("https://script.google.com/macros/s/AKfycbw7pQnNj2noyPRb2f_daHROFAnGHNYar3Ri-6sVRL_Bn9p3QDFzELH7MVLQrWvEDo55nQ/exec", {
             method: "POST",
             mode: "no-cors",
-            headers: {
-                "Content-Type": "application/json"
-            },
+            headers: { "Content-Type": "application/json" },
             body: JSON.stringify(data)
         })
         .then(() => {
@@ -80,16 +94,4 @@ document.addEventListener("DOMContentLoaded", function () {
             alert("Ошибка отправки данных. Попробуйте позже.");
         });
     }
-
-    // Обработчик отправки формы
-    form.addEventListener("submit", function (event) {
-        event.preventDefault(); // Останавливаем отправку формы
-
-        const isNameValid = validateName();
-        const isRadioValid = validateRadio();
-
-        if (isNameValid && isRadioValid) {
-            sendDataToGoogleSheets(); // Отправка данных, если всё ок
-        }
-    });
 });
