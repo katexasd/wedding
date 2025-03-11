@@ -493,3 +493,13 @@ body, html {
     margin-bottom: 50px;
 }
 
+.error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.error {
+    border: 1px solid red !important;
+    background-color: #ffe6e6 !important;
+}
