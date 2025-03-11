@@ -393,13 +393,12 @@ body, html {
     border: 1px solid #3A4D40;
     background-color: transparent;
     padding: 10px;
-    width: 100%;
-    max-width: 600px; /* Ограничение на больших экранах */
+    width: 300px;
     text-align: left;
     outline: none;
     margin-bottom: 10px;
-    margin-left: 10px;
-    margin-right: 10px;
+    display: flex;
+    justify-content: center;
 }
 
 /* Делаем текст непрозрачным при вводе */
@@ -420,8 +419,8 @@ body, html {
     align-items: flex-start;
     margin-top: 10px;
     gap: 10px;
-    margin-left: 10px;
-    margin-right: 10px;
+    display: flex;
+    justify-content: center;
 }
 
 /* Стили для каждого варианта */
@@ -471,13 +470,13 @@ body, html {
     font-size: 15px;
     color: #FFF9F2;
     padding: 10px;
-    width: 110%; 
+    width: 320px; 
     max-width: 600px;
     border: none;
     cursor: pointer;
     transition: 0.3s;
-    margin-left: 10px; 
-    margin-right: 10px;
+    display: flex;
+    justify-content: center;
 }
 
 .rsvp-button:hover {
