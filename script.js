@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const form = document.querySelector(".rsvp-form");
     const nameInput = document.querySelector(".rsvp-input");
     const radioButtons = document.querySelectorAll("input[name='attendance']");
-    const radioContainer = document.querySelector(".rsvp-radio-group"); // Блок с радио-кнопками
+    const radioContainer = document.querySelector(".rsvp-options"); // Блок с радио-кнопками
 
     // Функция отображения ошибки
     function showError(input, message) {
@@ -72,6 +72,9 @@ document.addEventListener("DOMContentLoaded", function () {
             const attendance = [...radioButtons].find(radio => radio.checked).value;
 
             sendDataToGoogleSheets(name, attendance);
+
+            // Перенаправляем на response.html с параметром выбора
+            window.location.href = `response.html?attendance=${attendance}`;
         }
     });
 
@@ -85,13 +88,8 @@ document.addEventListener("DOMContentLoaded", function () {
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(data)
         })
-        .then(() => {
-            alert("Спасибо! Ваш ответ записан.");
-            form.reset(); // Очищаем форму после успешной отправки
-        })
         .catch(error => {
             console.error("Ошибка:", error);
-            alert("Ошибка отправки данных. Попробуйте позже.");
         });
     }
 });

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ответ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@200&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #FFF9F2;
+            font-family: 'Cormorant', serif;
+            font-weight: 200;
+            font-size: 32px;
+            color: #3A4D40;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="response-text">Загрузка...</div>
+
+    <script>
+        // Получаем параметры из URL
+        const params = new URLSearchParams(window.location.search);
+        const attendance = params.get("attendance");
+
+        // Устанавливаем текст в зависимости от выбора
+        const responseText = document.getElementById("response-text");
+        if (attendance === "yes") {
+            responseText.textContent = "Спасибо за ответ, будем ждать вас!";
+        } else {
+            responseText.textContent = "Спасибо за ответ!";
+        }
+    </script>
+</body>
+</html>
