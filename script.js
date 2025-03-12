@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const nameInput = document.querySelector(".rsvp-input");
     const radioButtons = document.querySelectorAll("input[name='attendance']");
     const radioContainer = document.querySelector(".rsvp-options"); // Блок с радио-кнопками
+    const button = document.querySelector(".rsvp-button");
 
     // Функция отображения ошибки
     function showError(input, message) {
@@ -71,17 +72,26 @@ document.addEventListener("DOMContentLoaded", function () {
             const name = nameInput.value.trim();
             const attendance = [...radioButtons].find(radio => radio.checked).value;
 
-            await sendDataToGoogleSheets(name, attendance);
-
-            // Перенаправляем на response.html с параметром выбора
-            window.location.href = `response.html?attendance=${attendance}`;
+            button.disabled = true;
+            button.style.backgroundColor = "#A0A9A3";
+            button.textContent = "Отправка...";
+            
+            try {
+                await sendDataToGoogleSheets(name, attendance);
+                window.location.href = `response.html?attendance=${attendance}`;
+            } catch (error) {
+                console.error("Ошибка:", error);
+    
+                // Если ошибка, активируем кнопку обратно
+                button.disabled = false;
+                button.textContent = "Отправить";
+            }
         }
     });
 
     // Функция отправки данных в Google Sheets
     async function sendDataToGoogleSheets(name, attendance) {
         const data = { name, attendance };
-
         await fetch("https://script.google.com/macros/s/AKfycbw7pQnNj2noyPRb2f_daHROFAnGHNYar3Ri-6sVRL_Bn9p3QDFzELH7MVLQrWvEDo55nQ/exec", {
             method: "POST",
             mode: "no-cors",

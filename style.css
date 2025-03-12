@@ -479,6 +479,12 @@ body, html {
     justify-content: center;
 }
 
+/* Отключенная кнопка */
+.rsvp-button:disabled {
+    background-color: #A0A9A3; /* Бледный цвет */
+    cursor: not-allowed;
+}
+
 .rsvp-button:hover {
     background-color: #2b3d30;
 }
