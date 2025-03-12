@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Обработчик отправки формы
-    form.addEventListener("submit", function (event) {
+    form.addEventListener("submit", async function (event) {
         event.preventDefault(); // Останавливаем стандартную отправку формы
 
         const isNameValid = validateName();
@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const name = nameInput.value.trim();
             const attendance = [...radioButtons].find(radio => radio.checked).value;
 
-            sendDataToGoogleSheets(name, attendance);
+            await sendDataToGoogleSheets(name, attendance);
 
             // Перенаправляем на response.html с параметром выбора
             window.location.href = `response.html?attendance=${attendance}`;
@@ -79,10 +79,10 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // Функция отправки данных в Google Sheets
-    function sendDataToGoogleSheets(name, attendance) {
+    async function sendDataToGoogleSheets(name, attendance) {
         const data = { name, attendance };
 
-        fetch("https://script.google.com/macros/s/AKfycbw7pQnNj2noyPRb2f_daHROFAnGHNYar3Ri-6sVRL_Bn9p3QDFzELH7MVLQrWvEDo55nQ/exec", {
+        await fetch("https://script.google.com/macros/s/AKfycbw7pQnNj2noyPRb2f_daHROFAnGHNYar3Ri-6sVRL_Bn9p3QDFzELH7MVLQrWvEDo55nQ/exec", {
             method: "POST",
             mode: "no-cors",
             headers: { "Content-Type": "application/json" },
